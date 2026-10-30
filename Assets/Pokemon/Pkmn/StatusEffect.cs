@@ -68,7 +68,7 @@ namespace Pkmn
         /// </summary>
         public virtual void EndTurn()
         {
-            throw new NotImplementedException();
+            RemainingTurn--;
         }
     }
 

@@ -1,4 +1,5 @@
 ﻿
+using NUnit.Framework;
 using System;
 
 namespace Pkmn
@@ -27,7 +28,19 @@ namespace Pkmn
         /// </returns>
         public static float GetFactor(TYPE attacker, TYPE receiver)
         {
-            throw new NotImplementedException();
+            if((receiver== TYPE.WATER && attacker == TYPE.GRASS) ||
+                (receiver==TYPE.FIRE && attacker == TYPE.WATER) ||
+                (receiver==TYPE.GRASS && attacker == TYPE.FIRE) )
+            {
+                return 1.2f;
+            }
+            if ((receiver == TYPE.WATER && attacker == TYPE.FIRE) ||
+                (receiver == TYPE.FIRE && attacker == TYPE.GRASS) ||
+                (receiver == TYPE.GRASS && attacker == TYPE.WATER))
+            {
+                return 0.8f;
+            }
+            return 1;
         }
 
     }
